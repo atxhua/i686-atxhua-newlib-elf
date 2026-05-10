@@ -27,6 +27,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v6
+      with:
+        submodules: true
         
     - name: build
       run:  ./i686-atxhua-elf-tools/i686-elf-tools.sh binutils gcc gdb newlib linux zip -parallel -gv ${{ inputs.gcc_version }} -bv ${{ inputs.binutils_version }} -dv ${{ inputs.gdb_version }} -nv ${{ inputs.newlib_version }} -pp i686-atxhua-newlib-elf
