@@ -36,7 +36,9 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: i686-elf-tools
-        path: /home/runner/build-i686-elf/*.zip
+        path: |
+          /home/runner/build-i686-elf/*.zip
+          /home/runner/build-i686-elf/*.tar.gz
 
   release:
     runs-on: ubuntu-latest
@@ -50,10 +52,13 @@ jobs:
       with:
         name: GCC ${{ inputs.gcc_version }}
         tag_name: ${{ inputs.gcc_version }}
+        fail_on_unmatched_files: false
         draft: true
-        files: '**/*.zip'
+        files: |
+          **/*.zip
+          **/*.tar.gz
         body: |
           -GCC ${{ inputs.gcc_version }}
           -Binutils ${{ inputs.binutils_version }}
           -GDB ${{ inputs.gdb_version }}
-          -Newlib ${{ inputs.newlib }}
+          -Newlib ${{ inputs.newlib_version }}
