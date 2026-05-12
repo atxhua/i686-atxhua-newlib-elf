@@ -37,8 +37,8 @@ jobs:
       with:
         name: i686-elf-tools
         path: |
-          /home/runner/build-i686-elf/*.zip
-          /home/runner/build-i686-elf/*.tar.gz
+          /home/runner/build-i686-elf/i686-atxhua-newlib-elf*.zip
+          /home/runner/build-i686-elf/i686-atxhua-newlib-elf*.tar.gz
 
   release:
     runs-on: ubuntu-latest
