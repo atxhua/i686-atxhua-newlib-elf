@@ -23,7 +23,7 @@ on:
 
 jobs:
   i686:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v6
@@ -41,7 +41,7 @@ jobs:
           /home/runner/build-i686-elf/i686-atxhua-newlib-elf*.tar.gz
 
   release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [i686]
 
     steps:
